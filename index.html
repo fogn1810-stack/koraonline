@@ -16,6 +16,8 @@
         .live a { color:red; font-weight:bold; }
         footer { background:#333; color:#fff; text-align:center; padding:15px; margin-top:20px; }
         ul { list-style-type: disc; padding-left:20px; }
+        #stats { display:none; background:#fff; padding:20px; border:1px solid #006400; margin-top:20px; }
+        #stats h3 { color:#006400; }
     </style>
 </head>
 <body><header>
@@ -26,6 +28,7 @@
         <a href="#standings">ترتيب الفرق</a>
         <a href="#results">النتائج</a>
         <a href="#live">بث مباشر</a>
+        <a href="#" onclick="toggleStats()">📊 الإحصائيات</a>
     </nav>
 </header><section id="matches">
     <h2>📅 جدول مباريات اليوم</h2>
@@ -47,10 +50,15 @@
     <table id="live-table">
         <tr><th>الوقت</th><th>الفريق الأول</th><th>الفريق الثاني</th><th>الدوري</th><th>بث مباشر</th></tr>
     </table>
+</section><section id="stats">
+    <h3>📈 إحصائيات الموقع (خاص بك فقط)</h3>
+    <p id="visitor-count">عدد الزوار اليوم: 0</p>
+    <p id="page-views">عدد المشاهدات: 0</p>
+    <p id="interaction">تفاعل المستخدمين: 0</p>
 </section><footer>
     جميع الحقوق محفوظة © كورة أونلاين 2026
 </footer><script>
-// ---------- بيانات تجريبية للتحديث التلقائي ----------
+// ---------- بيانات تجريبية لتحديث الأقسام ----------
 const newsData = [
     "ميسي ينتقل لباريس سان جيرمان",
     "الأهلي يتأهل لنصف نهائي دوري أبطال أفريقيا",
@@ -99,5 +107,22 @@ liveData.forEach(match => {
     const row = `<tr class='live'><td>${match.time}</td><td>${match.team1}</td><td>${match.team2}</td><td>${match.league}</td><td><a href='${match.link}'>شاهد الآن</a></td></tr>`;
     liveTable.innerHTML += row;
 });
+
+// ---------- قسم الإحصائيات الخاص ----------
+let visitorCount = 123; // مثال عدد الزوار
+let pageViews = 456; // مثال عدد المشاهدات
+let interaction = 78; // مثال التفاعل
+
+function toggleStats() {
+    const password = prompt('ادخلي كلمة المرور لعرض الإحصائيات:');
+    if(password === 'kora123') { // استبدلي بكلمة المرور اللي تحبيها
+        document.getElementById('stats').style.display = 'block';
+        document.getElementById('visitor-count').textContent = `عدد الزوار اليوم: ${visitorCount}`;
+        document.getElementById('page-views').textContent = `عدد المشاهدات: ${pageViews}`;
+        document.getElementById('interaction').textContent = `تفاعل المستخدمين: ${interaction}`;
+    } else {
+        alert('كلمة المرور غير صحيحة');
+    }
+}
 </script></body>
 </html>
