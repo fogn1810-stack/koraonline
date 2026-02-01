@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>⚽ كورة أونلاين</title>
+
+<!-- ===== SEO GLOBAL ===== -->
+<title>كورة أونلاين | أخبار كرة القدم اليوم، مباريات اليوم، بث مباشر | Kora Online Football</title>
+
+<meta name="description" content="كورة أونلاين موقع عالمي لأخبار كرة القدم، مباريات اليوم، النتائج المباشرة، ترتيب الفرق، والبث المباشر. Kora Online provides football news, live matches, results and standings worldwide.">
+
+<meta name="keywords" content="كورة اونلاين, اخبار كرة القدم, مباريات اليوم, بث مباشر, نتائج المباريات, ترتيب الفرق, الدوري المصري, الدوري الانجليزي, الدوري الاسباني, football news, live football, football matches today, kora online">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://fogn1810-stack.github.io/koraonline/">
+
+<!-- ===== hreflang ===== -->
+<link rel="alternate" hreflang="ar" href="https://fogn1810-stack.github.io/koraonline/">
+<link rel="alternate" hreflang="en" href="https://fogn1810-stack.github.io/koraonline/">
+<link rel="alternate" hreflang="x-default" href="https://fogn1810-stack.github.io/koraonline/">
+
+<!-- ===== Open Graph ===== -->
+<meta property="og:title" content="كورة أونلاين | أخبار كرة القدم اليوم">
+<meta property="og:description" content="تابع أخبار كرة القدم العالمية، مباريات اليوم، النتائج المباشرة، وترتيب الفرق من كل الدوريات.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fogn1810-stack.github.io/koraonline/">
+
 <style>
-/* ===== تصميم عام ===== */
+/* ===== التصميم العام ===== */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     margin:0; padding:0;
     background:#f0f2f5;
     color:#333;
@@ -20,163 +42,199 @@ header {
     box-shadow:0 2px 5px rgba(0,0,0,0.2);
 }
 header h1 { margin:0; font-size:2.2em; }
+header p { margin:8px 0 0; font-size:1em; }
 nav { margin-top:10px; }
 nav a {
-    color:#fff; margin:0 12px;
-    text-decoration:none; font-weight:bold;
-    transition:0.3s;
+    color:#fff;
+    margin:0 12px;
+    text-decoration:none;
+    font-weight:bold;
 }
 nav a:hover { color:#ffdd00; }
 
 /* ===== الأقسام ===== */
-section { padding:20px; margin:15px auto; max-width:1000px; background:#fff; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
-h2 { color:#006400; margin-top:0; display:flex; align-items:center; gap:8px; }
-h2::before { content:"⚽"; }
+section {
+    padding:20px;
+    margin:15px auto;
+    max-width:1000px;
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+h2 {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:0;
+    font-size:1.5em;
+}
+
+/* ===== ألوان الأقسام ===== */
+#matches { border-right:5px solid #ff4d4d; }
+#news { border-right:5px solid #ff9933; }
+#standings { border-right:5px solid #3399ff; }
+#results { border-right:5px solid #33cc33; }
+#live { border-right:5px solid #ff33cc; }
 
 /* ===== الجداول ===== */
-table { width:100%; border-collapse: collapse; margin-top:10px; }
-th, td { padding:12px; text-align:center; border-bottom:1px solid #ddd; }
-th { background:#006400; color:#fff; }
+table {
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+th, td {
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+th {
+    background:#006400;
+    color:#fff;
+}
 tr:hover { background:#e6f4ea; }
 
 /* ===== الأخبار ===== */
-#news ul { padding-left:20px; }
-#news li { margin-bottom:10px; line-height:1.6; }
+#news ul { padding-right:20px; }
+#news li {
+    margin-bottom:10px;
+    line-height:1.7;
+}
 
 /* ===== البث المباشر ===== */
 .live a {
-    color:#fff; background:#ff4d4d;
-    padding:5px 10px; border-radius:5px;
-    text-decoration:none; font-weight:bold;
+    color:#fff;
+    background:#ff4d4d;
+    padding:6px 12px;
+    border-radius:5px;
+    text-decoration:none;
+    font-weight:bold;
 }
-.live a:hover { background:#ff1a1a; }
 
 /* ===== الإحصائيات ===== */
-#stats { display:none; background:#e6f4ea; padding:20px; border:2px solid #006400; border-radius:10px; margin-top:20px; }
-#stats h3 { color:#006400; }
+#stats {
+    display:none;
+    background:#e6f4ea;
+    padding:20px;
+    border:2px solid #006400;
+    border-radius:10px;
+    margin-top:20px;
+}
 
 /* ===== الفوتر ===== */
-footer { background:#333; color:#fff; text-align:center; padding:15px; margin-top:20px; border-top:3px solid #006400; }
-
-/* ===== أزرار ===== */
-button { padding:6px 12px; border:none; border-radius:5px; background:#006400; color:#fff; cursor:pointer; transition:0.3s; }
-button:hover { background:#004d00; }
+footer {
+    background:#333;
+    color:#fff;
+    text-align:center;
+    padding:15px;
+    margin-top:20px;
+}
+.team-icon { width:20px; vertical-align:middle; margin-left:5px; }
+.league-icon { width:20px; vertical-align:middle; margin-left:5px; }
 </style>
 </head>
+
 <body>
 
 <header>
     <h1>⚽ كورة أونلاين</h1>
+    <p>أخبار كرة القدم اليوم | مباريات اليوم | Live Football News</p>
     <nav>
         <a href="#matches">مباريات اليوم</a>
-        <a href="#news">أخبار اللاعبين والفرق</a>
+        <a href="#news">أخبار كرة القدم</a>
         <a href="#standings">ترتيب الفرق</a>
-        <a href="#results">النتائج</a>
+        <a href="#results">نتائج المباريات</a>
         <a href="#live">بث مباشر</a>
         <a href="#" onclick="toggleStats()">📊 الإحصائيات</a>
     </nav>
 </header>
 
 <section id="matches">
-    <h2>📅 جدول مباريات اليوم</h2>
-    <table id="matches-table">
-        <tr><th>الوقت</th><th>الفريق الأول</th><th>الفريق الثاني</th><th>الدوري</th></tr>
-    </table>
+<h2>📅 جدول مباريات اليوم | Today’s Football Matches</h2>
+<table id="matches-table">
+<tr><th>الوقت</th><th>الفريق الأول</th><th>الفريق الثاني</th><th>الدوري</th></tr>
+</table>
 </section>
 
 <section id="news">
-    <h2>📰 أخبار اللاعبين والفرق</h2>
+<h2>📰 أخبار كرة القدم | Football News</h2>
 </section>
 
 <section id="standings">
-    <h2>🏆 ترتيب الفرق</h2>
-    <table id="standings-table">
-        <tr><th>المركز</th><th>الفريق</th><th>النقاط</th></tr>
-    </table>
+<h2>🏆 ترتيب الفرق | League Standings</h2>
+<table id="standings-table">
+<tr><th>المركز</th><th>الفريق</th><th>النقاط</th></tr>
+</table>
 </section>
 
 <section id="results">
-    <h2>⚡ النتائج المباشرة والتحليلات</h2>
-    <p id="results-section">سيتم تحديث النتائج والتحليلات تلقائيًا.</p>
+<h2>⚡ نتائج المباريات | Live Scores</h2>
+<p>تابع نتائج مباريات اليوم وتحليلات كرة القدم من جميع الدوريات العالمية.</p>
 </section>
 
 <section id="live">
-    <h2>📺 البث المباشر</h2>
-    <table id="live-table">
-        <tr><th>الوقت</th><th>الفريق الأول</th><th>الفريق الثاني</th><th>الدوري</th><th>بث مباشر</th></tr>
-    </table>
+<h2>📺 بث مباشر | Live Streaming</h2>
+<table id="live-table">
+<tr><th>الوقت</th><th>الفريق الأول</th><th>الفريق الثاني</th><th>الدوري</th><th>مشاهدة</th></tr>
+</table>
 </section>
 
 <section id="stats">
-    <h3>📈 إحصائيات الموقع (خاص بك فقط)</h3>
-    <p id="visitor-count">عدد الزوار اليوم: 0</p>
-    <p id="page-views">عدد المشاهدات: 0</p>
-    <p id="interaction">تفاعل المستخدمين: 0</p>
+<h3>📈 إحصائيات الموقع (خاص)</h3>
+<p id="visitor-count"></p>
+<p id="page-views"></p>
+<p id="interaction"></p>
 </section>
 
 <footer>
-    جميع الحقوق محفوظة © كورة أونلاين 2026
+جميع الحقوق محفوظة © كورة أونلاين 2026
 </footer>
 
 <script>
-// ===== بيانات تجريبية =====
-const newsData = [
-    "ميسي ينتقل لباريس سان جيرمان",
-    "الأهلي يتأهل لنصف نهائي دوري أبطال أفريقيا",
-    "ريال مدريد يفوز على برشلونة 3-1"
+const newsData=[
+"Messi joins PSG officially",
+"Al Ahly reaches CAF Champions League semi-final",
+"Real Madrid beats Barcelona 3-1"
 ];
 
-const matchesData = [
-    {time:'20:00',team1:'الأهلي',team2:'الزمالك',league:'الدوري المصري'},
-    {time:'22:00',team1:'ريال مدريد',team2:'برشلونة',league:'الدوري الإسباني'}
+const matchesData=[
+{time:'20:00',team1:'Al Ahly',team2:'Zamalek',league:'Egyptian League'},
+{time:'22:00',team1:'Real Madrid',team2:'Barcelona',league:'La Liga'}
 ];
 
-const standingsData = [
-    {position:1,team:'ريال مدريد',points:55},
-    {position:2,team:'برشلونة',points:50}
+const standingsData=[
+{position:1,team:'Real Madrid',points:55},
+{position:2,team:'Barcelona',points:50}
 ];
 
-const liveData = [
-    {time:'20:00',team1:'الأهلي',team2:'الزمالك',league:'الدوري المصري',link:'#'},
-    {time:'22:00',team1:'ريال مدريد',team2:'برشلونة',league:'الدوري الإسباني',link:'#'}
-];
+const liveData=matchesData;
 
-// ===== تحديث الأخبار =====
-const newsSection = document.getElementById('news');
-let newsList = '<ul>';
-newsData.forEach(item => { newsList += `<li>${item}</li>`; });
-newsList += '</ul>';
-newsSection.innerHTML += newsList;
+let newsList='<ul>';
+newsData.forEach(n=>newsList+=`<li>${n}</li>`);
+newsList+='</ul>';
+document.getElementById('news').innerHTML+=newsList;
 
-// ===== جدول المباريات =====
-const matchesTable = document.getElementById('matches-table');
-matchesData.forEach(match => {
-    matchesTable.innerHTML += `<tr><td>${match.time}</td><td>${match.team1}</td><td>${match.team2}</td><td>${match.league}</td></tr>`;
+matchesData.forEach(m=>{
+document.getElementById('matches-table').innerHTML+=`<tr><td>${m.time}</td><td>${m.team1}</td><td>${m.team2}</td><td>${m.league}</td></tr>`;
 });
 
-// ===== ترتيب الفرق =====
-const standingsTable = document.getElementById('standings-table');
-standingsData.forEach(team => {
-    standingsTable.innerHTML += `<tr><td>${team.position}</td><td>${team.team}</td><td>${team.points}</td></tr>`;
+standingsData.forEach(t=>{
+document.getElementById('standings-table').innerHTML+=`<tr><td>${t.position}</td><td>${t.team}</td><td>${t.points}</td></tr>`;
 });
 
-// ===== البث المباشر =====
-const liveTable = document.getElementById('live-table');
-liveData.forEach(match => {
-    liveTable.innerHTML += `<tr class='live'><td>${match.time}</td><td>${match.team1}</td><td>${match.team2}</td><td>${match.league}</td><td><a href='${match.link}'>شاهد الآن</a></td></tr>`;
+liveData.forEach(m=>{
+document.getElementById('live-table').innerHTML+=`<tr class="live"><td>${m.time}</td><td>${m.team1}</td><td>${m.team2}</td><td>${m.league}</td><td><a href="#">Watch</a></td></tr>`;
 });
 
-// ===== الإحصائيات الخاصة =====
-let visitorCount = 123, pageViews = 456, interaction = 78;
-function toggleStats() {
-    const password = prompt('ادخلي كلمة المرور لعرض الإحصائيات:');
-    if(password === 'kora123'){
-        document.getElementById('stats').style.display='block';
-        document.getElementById('visitor-count').textContent = `عدد الزوار اليوم: ${visitorCount}`;
-        document.getElementById('page-views').textContent = `عدد المشاهدات: ${pageViews}`;
-        document.getElementById('interaction').textContent = `تفاعل المستخدمين: ${interaction}`;
-    } else { alert('كلمة المرور غير صحيحة'); }
+function toggleStats(){
+const pass=prompt("Password:");
+if(pass==="kora123"){
+document.getElementById("stats").style.display="block";
+document.getElementById("visitor-count").innerText="Visitors Today: 123";
+document.getElementById("page-views").innerText="Page Views: 456";
+document.getElementById("interaction").innerText="Interactions: 78";
+}
 }
 </script>
+
 </body>
 </html>
