@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="ar">
+<!DOCTYPE html><html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,11 +15,10 @@
         tr:nth-child(even) { background:#f2f2f2; }
         .live a { color:red; font-weight:bold; }
         footer { background:#333; color:#fff; text-align:center; padding:15px; margin-top:20px; }
+        ul { list-style-type: disc; padding-left:20px; }
     </style>
 </head>
-<body>
-
-<header>
+<body><header>
     <h1>⚽ كورة أونلاين</h1>
     <nav>
         <a href="#matches">مباريات اليوم</a>
@@ -29,48 +27,77 @@
         <a href="#results">النتائج</a>
         <a href="#live">بث مباشر</a>
     </nav>
-</header>
-
-<section id="matches">
+</header><section id="matches">
     <h2>📅 جدول مباريات اليوم</h2>
-    <table>
+    <table id="matches-table">
         <tr><th>الوقت</th><th>الفريق الأول</th><th>الفريق الثاني</th><th>الدوري</th></tr>
-        <tr><td>20:00</td><td>الأهلي</td><td>الزمالك</td><td>الدوري المصري</td></tr>
-        <tr><td>22:00</td><td>ريال مدريد</td><td>برشلونة</td><td>الدوري الإسباني</td></tr>
     </table>
-</section>
-
-<section id="news">
+</section><section id="news">
     <h2>📰 أخبار اللاعبين والفرق</h2>
-    <p>هنا آخر أخبار اللاعبين والفرق من كل الدوريات.</p>
-</section>
-
-<section id="standings">
+</section><section id="standings">
     <h2>🏆 ترتيب الفرق</h2>
-    <table>
+    <table id="standings-table">
         <tr><th>المركز</th><th>الفريق</th><th>النقاط</th></tr>
-        <tr><td>1</td><td>ريال مدريد</td><td>55</td></tr>
-        <tr><td>2</td><td>برشلونة</td><td>50</td></tr>
     </table>
-</section>
-
-<section id="results">
+</section><section id="results">
     <h2>⚡ النتائج المباشرة والتحليلات</h2>
-    <p>هنا ستظهر نتائج المباريات مباشرة وتحليلات مختصرة بعد انتهاء المباريات.</p>
-</section>
-
-<section id="live">
+    <p id="results-section">سيتم تحديث النتائج والتحليلات تلقائيًا.</p>
+</section><section id="live">
     <h2>📺 البث المباشر</h2>
-    <table>
+    <table id="live-table">
         <tr><th>الوقت</th><th>الفريق الأول</th><th>الفريق الثاني</th><th>الدوري</th><th>بث مباشر</th></tr>
-        <tr class="live"><td>20:00</td><td>الأهلي</td><td>الزمالك</td><td>الدوري المصري</td><td><a href="#">شاهد الآن</a></td></tr>
-        <tr class="live"><td>22:00</td><td>ريال مدريد</td><td>برشلونة</td><td>الدوري الإسباني</td><td><a href="#">شاهد الآن</a></td></tr>
     </table>
-</section>
-
-<footer>
+</section><footer>
     جميع الحقوق محفوظة © كورة أونلاين 2026
-</footer>
+</footer><script>
+// ---------- بيانات تجريبية للتحديث التلقائي ----------
+const newsData = [
+    "ميسي ينتقل لباريس سان جيرمان",
+    "الأهلي يتأهل لنصف نهائي دوري أبطال أفريقيا",
+    "ريال مدريد يفوز على برشلونة 3-1"
+];
 
-</body>
+const matchesData = [
+    {time: '20:00', team1: 'الأهلي', team2: 'الزمالك', league: 'الدوري المصري'},
+    {time: '22:00', team1: 'ريال مدريد', team2: 'برشلونة', league: 'الدوري الإسباني'}
+];
+
+const standingsData = [
+    {position: 1, team: 'ريال مدريد', points: 55},
+    {position: 2, team: 'برشلونة', points: 50}
+];
+
+const liveData = [
+    {time: '20:00', team1: 'الأهلي', team2: 'الزمالك', league: 'الدوري المصري', link: '#'},
+    {time: '22:00', team1: 'ريال مدريد', team2: 'برشلونة', league: 'الدوري الإسباني', link: '#'}
+];
+
+// ---------- تحديث الأخبار ----------
+const newsSection = document.getElementById('news');
+let newsList = '<ul>';
+newsData.forEach(item => { newsList += `<li>${item}</li>`; });
+newsList += '</ul>';
+newsSection.innerHTML += newsList;
+
+// ---------- تحديث جدول المباريات ----------
+const matchesTable = document.getElementById('matches-table');
+matchesData.forEach(match => {
+    const row = `<tr><td>${match.time}</td><td>${match.team1}</td><td>${match.team2}</td><td>${match.league}</td></tr>`;
+    matchesTable.innerHTML += row;
+});
+
+// ---------- تحديث ترتيب الفرق ----------
+const standingsTable = document.getElementById('standings-table');
+standingsData.forEach(team => {
+    const row = `<tr><td>${team.position}</td><td>${team.team}</td><td>${team.points}</td></tr>`;
+    standingsTable.innerHTML += row;
+});
+
+// ---------- تحديث البث المباشر ----------
+const liveTable = document.getElementById('live-table');
+liveData.forEach(match => {
+    const row = `<tr class='live'><td>${match.time}</td><td>${match.team1}</td><td>${match.team2}</td><td>${match.league}</td><td><a href='${match.link}'>شاهد الآن</a></td></tr>`;
+    liveTable.innerHTML += row;
+});
+</script></body>
 </html>
