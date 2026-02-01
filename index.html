@@ -1,17 +1,76 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>كورة أونلاين</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كورة أونلاين</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f8f8f8; }
+        header { background:#006400; color:#fff; padding:15px 20px; text-align:center; }
+        nav a { color:#fff; margin:0 10px; text-decoration:none; font-weight:bold; }
+        section { padding:20px; }
+        h2 { color:#006400; margin-top:0; }
+        table { width:100%; border-collapse: collapse; margin-bottom:20px; }
+        table, th, td { border:1px solid #ddd; }
+        th, td { padding:10px; text-align:center; }
+        tr:nth-child(even) { background:#f2f2f2; }
+        .live a { color:red; font-weight:bold; }
+        footer { background:#333; color:#fff; text-align:center; padding:15px; margin-top:20px; }
+    </style>
 </head>
-<body style="font-family: Arial; text-align: center; direction: rtl;">
+<body>
 
-  <h1>⚽ كورة أونلاين</h1>
-  <p>موقع شامل لأخبار كرة القدم من كل أنحاء العالم</p>
+<header>
+    <h1>⚽ كورة أونلاين</h1>
+    <nav>
+        <a href="#matches">مباريات اليوم</a>
+        <a href="#news">أخبار اللاعبين والفرق</a>
+        <a href="#standings">ترتيب الفرق</a>
+        <a href="#results">النتائج</a>
+        <a href="#live">بث مباشر</a>
+    </nav>
+</header>
 
-  <p style="color: green; font-weight: bold;">
-    الموقع شغال ✅
-  </p>
+<section id="matches">
+    <h2>📅 جدول مباريات اليوم</h2>
+    <table>
+        <tr><th>الوقت</th><th>الفريق الأول</th><th>الفريق الثاني</th><th>الدوري</th></tr>
+        <tr><td>20:00</td><td>الأهلي</td><td>الزمالك</td><td>الدوري المصري</td></tr>
+        <tr><td>22:00</td><td>ريال مدريد</td><td>برشلونة</td><td>الدوري الإسباني</td></tr>
+    </table>
+</section>
+
+<section id="news">
+    <h2>📰 أخبار اللاعبين والفرق</h2>
+    <p>هنا آخر أخبار اللاعبين والفرق من كل الدوريات.</p>
+</section>
+
+<section id="standings">
+    <h2>🏆 ترتيب الفرق</h2>
+    <table>
+        <tr><th>المركز</th><th>الفريق</th><th>النقاط</th></tr>
+        <tr><td>1</td><td>ريال مدريد</td><td>55</td></tr>
+        <tr><td>2</td><td>برشلونة</td><td>50</td></tr>
+    </table>
+</section>
+
+<section id="results">
+    <h2>⚡ النتائج المباشرة والتحليلات</h2>
+    <p>هنا ستظهر نتائج المباريات مباشرة وتحليلات مختصرة بعد انتهاء المباريات.</p>
+</section>
+
+<section id="live">
+    <h2>📺 البث المباشر</h2>
+    <table>
+        <tr><th>الوقت</th><th>الفريق الأول</th><th>الفريق الثاني</th><th>الدوري</th><th>بث مباشر</th></tr>
+        <tr class="live"><td>20:00</td><td>الأهلي</td><td>الزمالك</td><td>الدوري المصري</td><td><a href="#">شاهد الآن</a></td></tr>
+        <tr class="live"><td>22:00</td><td>ريال مدريد</td><td>برشلونة</td><td>الدوري الإسباني</td><td><a href="#">شاهد الآن</a></td></tr>
+    </table>
+</section>
+
+<footer>
+    جميع الحقوق محفوظة © كورة أونلاين 2026
+</footer>
 
 </body>
 </html>
