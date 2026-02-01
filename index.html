@@ -1,128 +1,102 @@
-<!DOCTYPE html><html lang="ar">
+<!DOCTYPE html>
+<html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كورة أونلاين</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f8f8f8; }
-        header { background:#006400; color:#fff; padding:15px 20px; text-align:center; }
-        nav a { color:#fff; margin:0 10px; text-decoration:none; font-weight:bold; }
-        section { padding:20px; }
-        h2 { color:#006400; margin-top:0; }
-        table { width:100%; border-collapse: collapse; margin-bottom:20px; }
-        table, th, td { border:1px solid #ddd; }
-        th, td { padding:10px; text-align:center; }
-        tr:nth-child(even) { background:#f2f2f2; }
-        .live a { color:red; font-weight:bold; }
-        footer { background:#333; color:#fff; text-align:center; padding:15px; margin-top:20px; }
-        ul { list-style-type: disc; padding-left:20px; }
-        #stats { display:none; background:#fff; padding:20px; border:1px solid #006400; margin-top:20px; }
-        #stats h3 { color:#006400; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كورة أونلاين</title>
+<style>
+/* ===== تصميم عام ===== */
+body { font-family: 'Arial', sans-serif; background: #f4f4f4; margin:0; padding:0; color:#333; }
+header { background:#1a1a1a; color:#fff; padding:15px; text-align:center; }
+header h1 { margin:0; font-size:2em; }
+header p { margin:5px 0 0 0; font-size:1em; }
+
+/* ===== أقسام الصفحة ===== */
+section { background:#fff; margin:15px; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+h2 { color:#1a1a1a; margin-bottom:10px; }
+
+/* ===== الجداول ===== */
+table { width:100%; border-collapse: collapse; margin-top:10px; }
+th, td { padding:10px; text-align:center; border-bottom:1px solid #ddd; }
+th { background:#1a1a1a; color:#fff; }
+
+/* ===== البث المباشر ===== */
+.live-stream { background:#ff4d4d; color:#fff; padding:10px; border-radius:5px; text-align:center; font-weight:bold; }
+
+/* ===== قسم الإحصائيات ===== */
+#stats { display:none; margin-top:10px; }
+input[type="password"] { padding:5px; border-radius:5px; border:1px solid #ccc; }
+button { padding:5px 10px; border:none; background:#1a1a1a; color:#fff; border-radius:5px; cursor:pointer; }
+button:hover { background:#333; }
+</style>
 </head>
-<body><header>
-    <h1>⚽ كورة أونلاين</h1>
-    <nav>
-        <a href="#matches">مباريات اليوم</a>
-        <a href="#news">أخبار اللاعبين والفرق</a>
-        <a href="#standings">ترتيب الفرق</a>
-        <a href="#results">النتائج</a>
-        <a href="#live">بث مباشر</a>
-        <a href="#" onclick="toggleStats()">📊 الإحصائيات</a>
-    </nav>
-</header><section id="matches">
-    <h2>📅 جدول مباريات اليوم</h2>
-    <table id="matches-table">
-        <tr><th>الوقت</th><th>الفريق الأول</th><th>الفريق الثاني</th><th>الدوري</th></tr>
-    </table>
-</section><section id="news">
-    <h2>📰 أخبار اللاعبين والفرق</h2>
-</section><section id="standings">
-    <h2>🏆 ترتيب الفرق</h2>
-    <table id="standings-table">
-        <tr><th>المركز</th><th>الفريق</th><th>النقاط</th></tr>
-    </table>
-</section><section id="results">
-    <h2>⚡ النتائج المباشرة والتحليلات</h2>
-    <p id="results-section">سيتم تحديث النتائج والتحليلات تلقائيًا.</p>
-</section><section id="live">
-    <h2>📺 البث المباشر</h2>
-    <table id="live-table">
-        <tr><th>الوقت</th><th>الفريق الأول</th><th>الفريق الثاني</th><th>الدوري</th><th>بث مباشر</th></tr>
-    </table>
-</section><section id="stats">
-    <h3>📈 إحصائيات الموقع (خاص بك فقط)</h3>
-    <p id="visitor-count">عدد الزوار اليوم: 0</p>
-    <p id="page-views">عدد المشاهدات: 0</p>
-    <p id="interaction">تفاعل المستخدمين: 0</p>
-</section><footer>
-    جميع الحقوق محفوظة © كورة أونلاين 2026
-</footer><script>
-// ---------- بيانات تجريبية لتحديث الأقسام ----------
-const newsData = [
-    "ميسي ينتقل لباريس سان جيرمان",
-    "الأهلي يتأهل لنصف نهائي دوري أبطال أفريقيا",
-    "ريال مدريد يفوز على برشلونة 3-1"
-];
+<body>
 
-const matchesData = [
-    {time: '20:00', team1: 'الأهلي', team2: 'الزمالك', league: 'الدوري المصري'},
-    {time: '22:00', team1: 'ريال مدريد', team2: 'برشلونة', league: 'الدوري الإسباني'}
-];
+<header>
+<h1>⚽ كورة أونلاين</h1>
+<p>أحدث أخبار كرة القدم والمباريات حول العالم</p>
+</header>
 
-const standingsData = [
-    {position: 1, team: 'ريال مدريد', points: 55},
-    {position: 2, team: 'برشلونة', points: 50}
-];
+<!-- جدول مباريات اليوم -->
+<section>
+<h2>جدول مباريات اليوم</h2>
+<table id="matches-table">
+<tr><th>الوقت</th><th>الفريق الأول</th><th>الفريق الثاني</th><th>الدوري</th></tr>
+<tr><td>18:00</td><td>فريق A</td><td>فريق B</td><td>الدوري الإنجليزي</td></tr>
+<tr><td>20:30</td><td>فريق C</td><td>فريق D</td><td>الدوري الإسباني</td></tr>
+</table>
+</section>
 
-const liveData = [
-    {time: '20:00', team1: 'الأهلي', team2: 'الزمالك', league: 'الدوري المصري', link: '#'},
-    {time: '22:00', team1: 'ريال مدريد', team2: 'برشلونة', league: 'الدوري الإسباني', link: '#'}
-];
+<!-- ترتيب الفرق -->
+<section>
+<h2>ترتيب الفرق (الدوري الإنجليزي)</h2>
+<table id="standings-table">
+<tr><th>المركز</th><th>الفريق</th><th>نقاط</th><th>فارق الأهداف</th></tr>
+<tr><td>1</td><td>مانشستر سيتي</td><td>82</td><td>45</td></tr>
+<tr><td>2</td><td>ليفربول</td><td>79</td><td>40</td></tr>
+</table>
+</section>
 
-// ---------- تحديث الأخبار ----------
-const newsSection = document.getElementById('news');
-let newsList = '<ul>';
-newsData.forEach(item => { newsList += `<li>${item}</li>`; });
-newsList += '</ul>';
-newsSection.innerHTML += newsList;
+<!-- الأخبار -->
+<section>
+<h2>أحدث الأخبار</h2>
+<ul>
+<li>⚽ رونالدو يسجل هاتريك مذهل.</li>
+<li>🏆 ريال مدريد يفوز بالدوري الإسباني.</li>
+<li>📢 تحديثات الانتقالات الصيفية 2026.</li>
+</ul>
+</section>
 
-// ---------- تحديث جدول المباريات ----------
-const matchesTable = document.getElementById('matches-table');
-matchesData.forEach(match => {
-    const row = `<tr><td>${match.time}</td><td>${match.team1}</td><td>${match.team2}</td><td>${match.league}</td></tr>`;
-    matchesTable.innerHTML += row;
-});
+<!-- البث المباشر -->
+<section>
+<h2>البث المباشر</h2>
+<div class="live-stream">🔴 البث المباشر سيظهر هنا لاحقًا</div>
+</section>
 
-// ---------- تحديث ترتيب الفرق ----------
-const standingsTable = document.getElementById('standings-table');
-standingsData.forEach(team => {
-    const row = `<tr><td>${team.position}</td><td>${team.team}</td><td>${team.points}</td></tr>`;
-    standingsTable.innerHTML += row;
-});
+<!-- قسم الإحصائيات -->
+<section>
+<h2>قسم الإحصائيات (خاص)</h2>
+<p>أدخلي كلمة المرور لتشوف الإحصائيات:</p>
+<input type="password" id="stats-pass" placeholder="كلمة المرور">
+<button onclick="showStats()">عرض الإحصائيات</button>
+<div id="stats">
+<p>عدد الزوار اليوم: <span id="visitorCount">123</span></p>
+<p>عدد المشاهدات: <span id="pageViews">456</span></p>
+<p>تفاعل المستخدمين: <span id="interaction">78</span></p>
+</div>
+</section>
 
-// ---------- تحديث البث المباشر ----------
-const liveTable = document.getElementById('live-table');
-liveData.forEach(match => {
-    const row = `<tr class='live'><td>${match.time}</td><td>${match.team1}</td><td>${match.team2}</td><td>${match.league}</td><td><a href='${match.link}'>شاهد الآن</a></td></tr>`;
-    liveTable.innerHTML += row;
-});
-
-// ---------- قسم الإحصائيات الخاص ----------
-let visitorCount = 123; // مثال عدد الزوار
-let pageViews = 456; // مثال عدد المشاهدات
-let interaction = 78; // مثال التفاعل
-
-function toggleStats() {
-    const password = prompt('ادخلي كلمة المرور لعرض الإحصائيات:');
-    if(password === 'kora123') { // استبدلي بكلمة المرور اللي تحبيها
-        document.getElementById('stats').style.display = 'block';
-        document.getElementById('visitor-count').textContent = `عدد الزوار اليوم: ${visitorCount}`;
-        document.getElementById('page-views').textContent = `عدد المشاهدات: ${pageViews}`;
-        document.getElementById('interaction').textContent = `تفاعل المستخدمين: ${interaction}`;
-    } else {
-        alert('كلمة المرور غير صحيحة');
-    }
+<script>
+// ===== عرض الإحصائيات بكلمة مرور =====
+function showStats(){
+  const pass = document.getElementById('stats-pass').value;
+  if(pass === 'kora123'){
+      document.getElementById('stats').style.display='block';
+  } else {
+      alert('كلمة مرور خاطئة!');
+  }
 }
-</script></body>
+</script>
+
+</body>
 </html>
