@@ -33,7 +33,7 @@ th { background:#222; color:#fff; }
 </section>
 
 <section>
-<h2>ترتيب الفرق</h2>
+<h2>ترتيب الفرق (الدوري الإنجليزي كمثال)</h2>
 <table id="standings-table">
 <tr>
 <th>المركز</th>
@@ -75,8 +75,11 @@ fetch('https://api.football-data.org/v4/matches', {
     matchesTable.innerHTML = `<tr>
 <th>الوقت</th><th>الفريق الأول</th><th>الفريق الثاني</th><th>الدوري</th></tr>`;
     data.matches.forEach(match => {
+        const date = new Date(match.utcDate);
+        const hours = date.getUTCHours().toString().padStart(2,'0');
+        const minutes = date.getUTCMinutes().toString().padStart(2,'0');
         const row = `<tr>
-<td>${match.utcDate.slice(11,16)}</td>
+<td>${hours}:${minutes}</td>
 <td>${match.homeTeam.name}</td>
 <td>${match.awayTeam.name}</td>
 <td>${match.competition.name}</td>
@@ -86,7 +89,7 @@ fetch('https://api.football-data.org/v4/matches', {
 })
 .catch(err => console.log('خطأ في جلب المباريات:', err));
 
-// ===== جلب ترتيب الفرق (مثال: الدوري الإنجليزي PL) =====
+// ===== جلب ترتيب الفرق (PL كمثال) =====
 const standingsTable = document.getElementById('standings-table');
 fetch('https://api.football-data.org/v4/competitions/PL/standings', {
     headers: { 'X-Auth-Token': apiKey }
